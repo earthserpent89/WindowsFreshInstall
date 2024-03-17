@@ -8,6 +8,7 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit
 }
 
+# Disable UAC
 write-host "disabling UAC..."
 Disable-UAC
 
@@ -109,6 +110,62 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name 
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config -Name DODownloadMode -Type DWord -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization -Name SystemSettingsDownloadMode -Type DWord -Value 3
 Write-Host "Windows Updates Settings configured."
+
+# ------------------------------
+# Step 9A: Uninstalling unecessary applications that come with Windows out of the box
+# ------------------------------
+Write-Host "Uninstalling unecessary applications that come with Windows out of the box..."
+$applicationList = @(
+    "Microsoft.BingFinance",
+    "Microsoft.3DBuilder",
+    "Microsoft.BingFinance",
+    "Microsoft.BingNews",
+    "Microsoft.BingSports",
+    "Microsoft.BingWeather",
+    "Microsoft.GetHelp",
+    "Microsoft.Getstarted",
+    "Microsoft.Messaging",
+    "Microsoft.Microsoft3DViewer",
+    "Microsoft.MicrosoftOfficeHub",
+    "Microsoft.MicrosoftSolitaireCollection",
+    "Microsoft.MicrosoftStickyNotes",
+    "Microsoft.Office.OneNote",
+    "Microsoft.OneConnect",
+    "Microsoft.People",
+    "Microsoft.Print3D",
+    "Microsoft.SkypeApp",
+    "Microsoft.StorePurchaseApp",
+    "Microsoft.Wallet",
+    "Microsoft.WindowsAlarms",
+    "microsoft.windowscommunicationsapps",
+    "Microsoft.WindowsFeedbackHub",
+    "Microsoft.WindowsMaps",
+    "Microsoft.WindowsSoundRecorder",
+    "Microsoft.YourPhone",
+    "Microsoft.ZuneMusic",
+    "Microsoft.ZuneVideo"
+)
+foreach ($app in $applicationList) {
+    if (Get-WindowsPackage -Name $app -ErrorAction SilentlyContinue) {
+        Write-Host "Uninstalling $app..."
+        Uninstall-WindowsPackage -Name $app -Confirm:$false
+        Write-Host "$app has been uninstalled."
+    } else {
+        Write-Host "$app not found. Skipping..."
+    }
+}
+
+# ------------------------------
+# Step 9B: Remove provisioned packages
+# ------------------------------
+$packages = Get-AppxProvisionedPackage -Online
+foreach ($package in $packages) {
+    Remove-AppxProvisionedPackage -Online -PackageName $package.PackageName
+}
+
+# Reenable UAC
+write-host "Enabling UAC..."
+Enable-UAC
 
 # ------------------------------
 # Step 9: Rebooting the system

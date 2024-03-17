@@ -1,8 +1,7 @@
 {
-	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-03-17T02:56:01.119-00:00",
-	"Sources" : 
-	[
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2024-03-17T02:56:01.119-00:00",
+	"Sources": [
 		{
 			"Packages": [
 				{
@@ -18,7 +17,19 @@
 					"PackageIdentifier": "CodeSector.TeraCopy"
 				},
 				{
+					"PackageIdentifier": "CodecGuide.K-LiteCodecPack.Standard"
+				},
+				{
 					"PackageIdentifier": "Corsair.iCUE.5"
+				},
+				{
+					"PackageIdentifier": "CrystalDewWorld.CrystalDiskInfo.ShizukuEdition"
+				},
+				{
+					"PackageIdentifier": "CrystalDewWorld.CrystalDiskMark.ShizukuEdition"
+				},
+				{
+					"PackageIdentifier": "DigitalScholar.Zotero"
 				},
 				{
 					"PackageIdentifier": "DominikReichl.KeePass"
@@ -78,10 +89,16 @@
 					"PackageIdentifier": "Oracle.JDK.18"
 				},
 				{
+					"PackageIdentifier": "Piriform.Speccy"
+				},
+				{
 					"PackageIdentifier": "Python.Launcher"
 				},
 				{
 					"PackageIdentifier": "Python.Python.3.10"
+				},
+				{
+					"PackageIdentifier": "REALiX.HWiNFO"
 				},
 				{
 					"PackageIdentifier": "RealVNC.VNCViewer"
@@ -102,17 +119,19 @@
 					"PackageIdentifier": "VideoLAN.VLC"
 				},
 				{
+					"PackageIdentifier": "WinDirStat.WinDirStat"
+				},
+				{
 					"PackageIdentifier": "WinSCP.WinSCP"
 				}
 			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://cdn.winget.microsoft.com/cache",
-				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name" : "winget",
-				"Type" : "Microsoft.PreIndexed.Package"
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
 			}
 		}
 	],
-	"WinGetVersion" : "1.7.10661"
+	"WinGetVersion": "1.7.10661"
 }
