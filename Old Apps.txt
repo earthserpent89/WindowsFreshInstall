@@ -1,0 +1,82 @@
+/**
+ * This file lists various applications that are commonly installed on a Windows system.
+ * Each application is described briefly below:
+ *
+ * - Google Chrome: A popular web browser developed by Google.
+ * - Mozilla Firefox: Another popular web browser known for its speed and privacy features.
+ * - Notepad++: A powerful text editor with syntax highlighting and code editing capabilities.
+ * - VLC Media Player: A versatile media player that supports various audio and video formats.
+ * - Steam: A digital distribution platform for video games.
+ * - Epic Games Launcher: A launcher for accessing and managing games from the Epic Games Store.
+ * - Twitch: A platform for live streaming and watching gaming-related content.
+ * - Kindle: An e-book reader application developed by Amazon.
+ * - Discord: A communication platform for gamers, allowing voice, video, and text chat.
+ * - Slack: A collaboration hub for teams, providing chat, file sharing, and project management features.
+ * - Origin: A digital distribution platform for video games developed by Electronic Arts.
+ * - Plex Media Server: A media server software that allows streaming and organizing media files.
+ * - PotPlayer: A multimedia player that supports various audio and video formats.
+ * - 7-Zip: A file archiver with a high compression ratio, supporting multiple archive formats.
+ * - Adobe Reader: A free software for viewing, printing, and commenting on PDF documents.
+ * - CPU-Z: A system information tool that provides detailed information about the computer's hardware.
+ * - Google Backup and Sync: A tool for backing up and syncing files with Google Drive.
+ * - Speccy: A system information tool that provides detailed information about the computer's hardware and software.
+ * - WinDirStat: A disk usage statistics viewer and cleanup tool for Windows.
+ * - CrystalDiskInfo: A utility for monitoring the health of hard drives and solid-state drives.
+ * - CrystalDiskMark: A disk benchmark utility that measures the performance of hard drives and solid-state drives.
+ * - FileZilla: An FTP client for transferring files between a local computer and a remote server.
+ * - Java Runtime Environment 8 (JRE8): A software package that provides the Java runtime environment for running Java applications.
+ * - K-Lite Codec Pack Full: A collection of codecs and related tools for playing various audio and video formats.
+ * - Logitech Gaming Software: Software for configuring and customizing Logitech gaming peripherals.
+ * - GeForce Game Ready Driver: Graphics driver software for NVIDIA GeForce graphics cards.
+ * - Rainmeter: A desktop customization tool that allows users to create and display customizable skins on their desktop.
+ * - TeraCopy: A file transfer utility that optimizes and accelerates file copying and moving operations.
+ * - VisiPics: A duplicate image finder and remover that helps to free up disk space.
+ * - HWiNFO: A system information and diagnostic tool that provides detailed hardware information and monitoring.
+ * - VirtualBox: A virtualization software that allows running multiple operating systems on a single machine.
+ * - uGet: A download manager that supports resumable downloads and batch downloading.
+ * - KeePass: A password manager that stores and manages passwords in an encrypted database.
+ * - CUDA: A parallel computing platform and programming model for NVIDIA GPUs.
+ * - AIDA64 Extreme: A system information, diagnostic, and benchmarking tool.
+ * - Pushbullet: A service that connects multiple devices and allows sharing files, links, and notifications between them.
+ * - Sysinternals Suite: A collection of advanced system utilities and troubleshooting tools for Windows.
+ * - Inconsolata font: A monospaced font designed for code and terminal applications.
+ */
+ 
+- Google Chrome
+- Mozilla Firefox
+- Notepad++
+- VLC Media Player
+- Steam
+- Epic Games Launcher
+- Twitch
+- Kindle
+- Discord
+- Slack
+- Origin
+- Plex Media Server
+- PotPlayer
+- 7-Zip
+- Adobe Reader
+- CPU-Z
+- Google Backup and Sync
+- Speccy
+- WinDirStat
+- CrystalDiskInfo
+- CrystalDiskMark
+- FileZilla
+- Java Runtime Environment 8 (JRE8)
+- K-Lite Codec Pack Full
+- Logitech Gaming Software
+- GeForce Game Ready Driver
+- Rainmeter
+- TeraCopy
+- VisiPics
+- HWiNFO
+- VirtualBox
+- uGet
+- KeePass
+- CUDA
+- AIDA64 Extreme
+- Pushbullet
+- Sysinternals Suite
+- Inconsolata font
