@@ -8,6 +8,9 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit
 }
 
+write-host "disabling UAC..."
+Disable-UAC
+
 # ------------------------------
 # Step 1: Checking for Windows updates
 # ------------------------------
@@ -58,6 +61,10 @@ Write-Host "Configuring sudo for user Joshua..."
 wsl -d Ubuntu -u root bash -c "echo 'joshua ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
 
 Write-Host "User Joshua created and sudo configured."
+
+Write-Host "Updating Ubuntu..."
+wsl -d Ubuntu -u joshua bash -c "sudo apt update && sudo apt upgrade -y"
+Write-host "Ubuntu has been updated."
 
 # ------------------------------
 # Step 4: Installing applications

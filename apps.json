@@ -1,0 +1,118 @@
+{
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2024-03-17T02:56:01.119-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages": [
+				{
+					"PackageIdentifier": "Adobe.Acrobat.Reader.64-bit"
+				},
+				{
+					"PackageIdentifier": "Balena.Etcher"
+				},
+				{
+					"PackageIdentifier": "Bitwarden.Bitwarden"
+				},
+				{
+					"PackageIdentifier": "CodeSector.TeraCopy"
+				},
+				{
+					"PackageIdentifier": "Corsair.iCUE.5"
+				},
+				{
+					"PackageIdentifier": "DominikReichl.KeePass"
+				},
+				{
+					"PackageIdentifier": "ElectronicArts.EADesktop"
+				},
+				{
+					"PackageIdentifier": "EpicGames.EpicGamesLauncher"
+				},
+				{
+					"PackageIdentifier": "Google.Chrome"
+				},
+				{
+					"PackageIdentifier": "Google.GoogleDrive"
+				},
+				{
+					"PackageIdentifier": "Logitech.GHUB"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DirectX"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.5"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.7"
+				},
+				{
+					"PackageIdentifier": "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VisualStudioCode"
+				},
+				{
+					"PackageIdentifier": "NexusMods.Vortex"
+				},
+				{
+					"PackageIdentifier": "Nvidia.CUDA"
+				},
+				{
+					"PackageIdentifier": "Nvidia.GeForceExperience"
+				},
+				{
+					"PackageIdentifier": "Nvidia.PhysX"
+				},
+				{
+					"PackageIdentifier": "Notepad++.Notepad++"
+				},
+				{
+					"PackageIdentifier": "Oracle.JDK.18"
+				},
+				{
+					"PackageIdentifier": "Python.Launcher"
+				},
+				{
+					"PackageIdentifier": "Python.Python.3.10"
+				},
+				{
+					"PackageIdentifier": "RealVNC.VNCViewer"
+				},
+				{
+					"PackageIdentifier": "RevoUninstaller.RevoUninstaller"
+				},
+				{
+					"PackageIdentifier": "SatisfactoryModding.SatisfactoryModManager"
+				},
+				{
+					"PackageIdentifier": "Streamlabs.Streamlabs"
+				},
+				{
+					"PackageIdentifier": "Valve.Steam"
+				},
+				{
+					"PackageIdentifier": "VideoLAN.VLC"
+				},
+				{
+					"PackageIdentifier": "WinSCP.WinSCP"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion" : "1.7.10661"
+}
