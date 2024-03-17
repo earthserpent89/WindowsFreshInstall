@@ -27,6 +27,9 @@ Runs the script to perform the fresh installation and configuration of Windows.
 - This script requires administrative privileges to run.
 - Make sure to review and modify the 'apps.json' file to specify the applications to be installed.
 - This script will automatically reboot the system after completing the configuration.
+
+Author: Joshua Betts
+Date: 03-17-2024
 #>
 
 $desktopPath = [Environment]::GetFolderPath("Desktop")
