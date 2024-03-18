@@ -32,38 +32,35 @@ Author: Joshua Betts
 Date: 03-17-2024
 #>
 
+# set script execution policy to unrestricted
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
+
 $desktopPath = [Environment]::GetFolderPath("Desktop")
 $logFile = Join-Path -Path $desktopPath -ChildPath 'AppDeployment.log'
 Start-Transcript -Path $logFile -Append
 
-if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "Not running as Administrator. Attempting to restart as Administrator..."
-    Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    exit
-}
-
 # Disable UAC
 Write-Host "Disabling UAC..."
-Disable-UAC
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0
 
 # Step 1: Checking for Windows updates
 Write-Host "Checking for Windows updates..."
-$updates = New-Object -ComObject Microsoft.Update.Session
-$updates.CreateUpdateSearcher().Search("IsInstalled=0 and Type='Software'").Updates
+$updates = Get-WindowsUpdate -IsInstalled 0 -Type Software
 
 # Step 2: Downloading and installing updates
 Write-Host "Downloading and installing updates..."
 foreach ($update in $updates) {
     Write-Host "Installing $($update.Title)..."
-    $updateInstaller = New-Object -ComObject Microsoft.Update.Installer
-    $updateInstaller.Updates = $update
-    $result = $updateInstaller.Install()
+    Install-WindowsUpdate -KBArticleID $update.KBArticleID
 
-    if ($result.ResultCode -ne 2) {
+    if ($?) {
+        Write-Host "Successfully installed $($update.Title)"
+    } else {
         Write-Host "Failed to install $($update.Title)"
     }
 }
 
+<#
 # Step 3A: Uninstalling unnecessary applications that come with Windows out of the box
 Write-Host "Uninstalling unnecessary applications that come with Windows out of the box..."
 $applicationList = @(
@@ -93,8 +90,10 @@ foreach ($app in $applicationList) {
         Write-Host "$app not found. Skipping..."
     }
 }
+#>
 
-# Step 3B: Remove provisioned packages
+# Step 3: Remove provisioned packages
+Write-Host "Removing provisioned packages..."
 $packages = Get-AppxProvisionedPackage -Online
 foreach ($package in $packages) {
     Remove-AppxProvisionedPackage -Online -PackageName $package.PackageName
@@ -151,6 +150,7 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
 
+<#
 # Step 8: Configuring Taskbar Settings
 Write-Host "Configuring Taskbar Settings..."
 Set-TaskbarOptions -Size Small -Dock Left -Combine Full -Lock
@@ -164,10 +164,11 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name 
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config -Name DODownloadMode -Type DWord -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization -Name SystemSettingsDownloadMode -Type DWord -Value 3
 Write-Host "Windows Updates Settings configured."
+#>
 
 # Re-enable UAC
 Write-Host "Enabling UAC..."
-Enable-UAC
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 1
 
 # Step 10: Rebooting the system
 Write-Host "Rebooting the system..."
