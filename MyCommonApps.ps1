@@ -32,7 +32,6 @@ Author: Joshua Betts
 Date: 03-17-2024
 #>
 
-# set script execution policy to unrestricted
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
 
 $desktopPath = [Environment]::GetFolderPath("Desktop")
@@ -45,58 +44,42 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
 
 # Step 1: Checking for Windows updates
 Write-Host "Checking for Windows updates..."
-$updates = Get-WindowsUpdate -IsInstalled 0 -Type Software
+$session = New-Object -ComObject Microsoft.Update.Session
+$searcher = $session.CreateUpdateSearcher()
+$updates = $searcher.Search("IsInstalled=0")
 
 # Step 2: Downloading and installing updates
 Write-Host "Downloading and installing updates..."
+$downloader = $session.CreateUpdateDownloader()
+$downloader.Updates = $updates
+$downloader.Download()
+
+$installer = $session.CreateUpdateInstaller()
+$installer.Updates = $updates
+$installationResult = $installer.Install()
+
 foreach ($update in $updates) {
-    Write-Host "Installing $($update.Title)..."
-    Install-WindowsUpdate -KBArticleID $update.KBArticleID
+    $updateTitle = $update.Title
+    $updateID = $update.Identity.UpdateID
 
-    if ($?) {
-        Write-Host "Successfully installed $($update.Title)"
+    if ($installationResult.GetUpdateResult($updateID).ResultCode -eq 2) {
+        Write-Host "Successfully installed $updateTitle"
     } else {
-        Write-Host "Failed to install $($update.Title)"
+        Write-Host "Failed to install $updateTitle"
     }
 }
-
-<#
-# Step 3A: Uninstalling unnecessary applications that come with Windows out of the box
-Write-Host "Uninstalling unnecessary applications that come with Windows out of the box..."
-$applicationList = @(
-    "Microsoft.3DBuilder",
-    "Microsoft.BingFinance",
-    "Microsoft.BingNews",
-    "Microsoft.BingSports",
-    "Microsoft.BingWeather",
-    "Microsoft.GetHelp",
-    "Microsoft.Getstarted",
-    "Microsoft.Microsoft3DViewer",
-    "Microsoft.MicrosoftSolitaireCollection",
-    "Microsoft.Print3D",
-    "Microsoft.SkypeApp",
-    "Microsoft.WindowsFeedbackHub",
-    "Microsoft.WindowsMaps",
-    "Microsoft.YourPhone",
-    "Microsoft.ZuneMusic",
-    "Microsoft.ZuneVideo"
-)
-foreach ($app in $applicationList) {
-    if (Get-WindowsPackage -Name $app -ErrorAction SilentlyContinue) {
-        Write-Host "Uninstalling $app..."
-        Uninstall-WindowsPackage -Name $app -Confirm:$false
-        Write-Host "$app has been uninstalled."
-    } else {
-        Write-Host "$app not found. Skipping..."
-    }
-}
-#>
 
 # Step 3: Remove provisioned packages
 Write-Host "Removing provisioned packages..."
 $packages = Get-AppxProvisionedPackage -Online
 foreach ($package in $packages) {
-    Remove-AppxProvisionedPackage -Online -PackageName $package.PackageName
+    try {
+        Remove-AppxProvisionedPackage -Online -PackageName $package.PackageName -ErrorAction Stop
+        Write-Host "Successfully removed provisioned package: $($package.PackageName)"
+    } catch {
+        Write-Host "Failed to remove provisioned package: $($package.PackageName)"
+        Write-Host "Error: $_"
+    }
 }
 
 # Step 4: Configuring Windows Subsystem for Linux and Ubuntu setup
@@ -149,22 +132,6 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel -Name AllItemsIconView -Type DWord -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
-
-<#
-# Step 8: Configuring Taskbar Settings
-Write-Host "Configuring Taskbar Settings..."
-Set-TaskbarOptions -Size Small -Dock Left -Combine Full -Lock
-Set-TaskbarOptions -Size Small -Dock Left -Combine Full -AlwaysShowIconsOn
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarAl -Value 0
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name PeopleBand -Value 0
-
-# Step 9: Configuring Windows Updates Settings
-Write-Host "Configuring Windows Updates Settings..."
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name UxOption -Type DWord -Value 1
-Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config -Name DODownloadMode -Type DWord -Value 1
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization -Name SystemSettingsDownloadMode -Type DWord -Value 3
-Write-Host "Windows Updates Settings configured."
-#>
 
 # Re-enable UAC
 Write-Host "Enabling UAC..."
