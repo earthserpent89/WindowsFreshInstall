@@ -42,7 +42,7 @@ function WriteToLog {
         [Parameter(Mandatory=$true)]
         [string]$Message,
         [Parameter(Mandatory=$false)]
-        [string]$LogFilePath = "C:\Logs\App-Setup.log"
+        [string]$LogFilePath = "C:\App-Setup.log"
     )
 
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
@@ -124,8 +124,14 @@ foreach ($app in $applications) {
         WriteToLog -Message "Installed $app"
     }
     catch {
-        $failedApps += $app
-        $errorMessage = $_.Exception.Message
+        if ($_.Exception.Message -like "*No package found matching*") {
+            $failedApps += $app
+            $errorMessage = "Package not found: $app"
+        }
+        else {
+            $failedApps += $app
+            $errorMessage = $_.Exception.Message
+        }
         WriteToLog -Message "Failed to install $app. Error: $errorMessage"
     }
 }
