@@ -5,7 +5,7 @@ properties:
     - resource: Microsoft.Windows.Developer/OsVersion
       directives:
         description: Verify min OS version requirement
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         MinVersion: '10.0.22000'
   resources:
@@ -13,7 +13,7 @@ properties:
       id: 7-Zip
       directives:
         description: Install 7-Zip
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: 7zip.7zip
         source: winget
@@ -22,7 +22,7 @@ properties:
       id: balenaEtcher
       directives:
         description: Install Balena Etcher
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Balena.Etcher
         source: winget
@@ -31,7 +31,7 @@ properties:
       id: Adobe Acrobat Reader DC (64-bit)
       directives:
         description: Install Adobe Acrobat Reader
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: adobe.acrobat.reader.64-bit
         source: winget
@@ -40,7 +40,7 @@ properties:
       id: bitwarden
       directives:
         description: Install Bitwarden
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Bitwarden.Bitwarden
         source: winget
@@ -49,7 +49,7 @@ properties:
       id: TeraCopy
       directives:
         description: Install TeraCopy
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: CodeSector.TeraCopy
         source: winget
@@ -58,7 +58,7 @@ properties:
       id: K-Lite Codec Pack Standard
       directives:
         description: Install K-Lite Codec Pack
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: CodecGuide.K-LiteCodecPack.Standard
         source: winget
@@ -67,7 +67,7 @@ properties:
       id: VLC media player
       directives:
         description: Install VLC media player
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: VideoLAN.VLC
         source: winget
@@ -76,7 +76,7 @@ properties:
       id: HandBrake
       directives:
         description: Install HandBrake
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: HandBrake.HandBrake
         source: winget
@@ -85,7 +85,7 @@ properties:
       id: Corsair iCUE5 Software
       directives:
         description: Install Corsair iCUE
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Corsair.iCUE.5
         source: winget
@@ -94,7 +94,7 @@ properties:
       id: CrystalDiskMark
       directives:
         description: Install CrystalDiskMark
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: CrystalDewWorld.CrystalDiskMark.ShizukuEdition
         source: winget
@@ -103,7 +103,7 @@ properties:
       id: CrystalDiskInfo
       directives:
         description: Install CrystalDiskInfo
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: CrystalDewWorld.CrystalDiskInfo.ShizukuEdition
         source: winget
@@ -112,7 +112,7 @@ properties:
       id: Zotero
       directives:
         description: Install Zotero
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: DigitalScholar.Zotero
         source: winget
@@ -121,7 +121,7 @@ properties:
       id: ElectronicArts.EADesktop
       directives:
         description: Install EA Desktop
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: ElectronicArts.EADesktop
         source: winget
@@ -130,7 +130,7 @@ properties:
       id: EpicGames.EpicGamesLauncher
       directives:
         description: Install Epic Games Launcher
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: EpicGames.EpicGamesLauncher
         source: winget
@@ -139,7 +139,7 @@ properties:
       id: Google Drive
       directives:
         description: Install Google Drive
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Google.Drive
         source: winget
@@ -148,7 +148,7 @@ properties:
       id: Google Chrome
       directives:
         description: Install Google Chrome
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Google.Chrome
         source: winget
@@ -157,7 +157,7 @@ properties:
       id: Logitech G HUB
       directives:
         description: Install Logitech G HUB
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Logitech.GHUB
         source: winget
@@ -166,7 +166,7 @@ properties:
       id: DirectX
       directives:
         description: Install DirectX
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.DirectX
         source: winget
@@ -175,7 +175,7 @@ properties:
       id: .NET Runtime 7
       directives:
         description: Install .NET Runtime 7
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.DotNet.Runtime.7
         source: winget
@@ -184,7 +184,7 @@ properties:
       id: Microsoft PowerToys
       directives:
         description: Install Microsoft PowerToys
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.PowerToys
         source: winget
@@ -193,7 +193,7 @@ properties:
       id: Visual Studio Code
       directives:
         description: Install Visual Studio Code
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.VisualStudioCode
         source: winget
@@ -202,7 +202,7 @@ properties:
       id: Nexus Mods Vortex
       directives:
         description: Install Nexus Mods Vortex
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: NexusMods.Vortex
         source: winget
@@ -211,7 +211,7 @@ properties:
       id: NVIDIA GeForce Experience
       directives:
         description: Install NVIDIA GeForce Experience
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Nvidia.GeForceExperience
         source: winget
@@ -220,7 +220,7 @@ properties:
       id: NVIDIA PhysX
       directives:
         description: Install NVIDIA PhysX
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Nvidia.PhysX
         source: winget
@@ -229,7 +229,7 @@ properties:
       id: Notepad++.Notepad++
       directives:
         description: Install Notepad++
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Notepad++.Notepad++
         source: winget
@@ -238,7 +238,7 @@ properties:
       id: Oracle Java Runtime Environment
       directives:
         description: Install Oracle Java Runtime Environment
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Oracle.JavaRuntimeEnvironment
         source: winget
@@ -247,7 +247,7 @@ properties:
       id: Speccy
       directives:
         description: Install Speccy
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Piriform.Speccy
         source: winget
@@ -256,7 +256,7 @@ properties:
       id: Python 3.11
       directives:
         description: Install Python 3.11
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Python.Python.3.11
         source: winget
@@ -265,7 +265,7 @@ properties:
       id: Anaconda3
       directives:
         description: Install Anaconda3
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Anaconda.Anaconda3
         source: winget
@@ -274,7 +274,7 @@ properties:
       id: HWiNFO
       directives:
         description: Install HWiNFO
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: REALiX.HWiNFO
         source: winget
@@ -283,7 +283,7 @@ properties:
       id: VNC Viewer
       directives:
         description: Install VNC Viewer
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: RealVNC.VNCViewer
         source: winget
@@ -292,7 +292,7 @@ properties:
       id: Revo Uninstaller
       directives:
         description: Install Revo Uninstaller
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: RevoUninstaller.RevoUninstaller
         source: winget
@@ -301,7 +301,7 @@ properties:
       id: Streamlabs.Streamlabs
       directives:
         description: Install Streamlabs
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Streamlabs.Streamlabs
         source: winget
@@ -310,7 +310,7 @@ properties:
       id: Valve Steam
       directives:
         description: Install Steam
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Valve.Steam
         source: winget
@@ -319,7 +319,7 @@ properties:
       id: WizTree
       directives:
         description: Install WizTree
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: AntibodySoftware.WizTree
         source: winget
@@ -328,7 +328,7 @@ properties:
       id: WinSCP
       directives:
         description: Install WinSCP
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: WinSCP.WinSCP
         source: winget
@@ -337,7 +337,7 @@ properties:
       id: XIVLauncher
       directives:
         description: Install XIVLauncher
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: goatcorp.XIVLauncher
         source: winget
@@ -346,7 +346,7 @@ properties:
       id: Spotify
       directives:
         description: Install Spotify
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Spotify.Spotify
         source: winget
@@ -355,7 +355,7 @@ properties:
       id: Deluge
       directives:
         description: Install Deluge
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: DelugeTeam.Deluge
         source: winget
@@ -364,7 +364,7 @@ properties:
       id: Angry IP Scanner
       directives:
         description: Install Angry IP Scanner
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: angryziber.AngryIPScanner
         source: winget
@@ -373,7 +373,7 @@ properties:
       id: Mozilla Firefox
       directives:
         description: Install Mozilla Firefox
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Mozilla.Firefox
         source: winget
@@ -382,7 +382,7 @@ properties:
       id: Amazon Kindle
       directives:
         description: Install Amazon Kindle
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Amazon.Kindle
         source: winget
@@ -391,7 +391,7 @@ properties:
       id: CPU-Z AORUS
       directives:
         description: Install CPU-Z AORUS
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: CPUID.CPU-Z.AORUS
         source: winget
@@ -400,7 +400,7 @@ properties:
       id: Discord
       directives:
         description: Install Discord
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Discord.Discord
         source: winget
@@ -409,7 +409,7 @@ properties:
       id: GitHub Desktop
       directives:
         description: Install GitHub Desktop
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: GitHub.GitHubDesktop
         source: winget
@@ -418,7 +418,7 @@ properties:
       id: Git
       directives:
         description: Install Git
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Microsoft.Git
         source: winget
@@ -427,7 +427,7 @@ properties:
       id: MSI Afterburner
       directives:
         description: Install MSI Afterburner
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Guru3D.Afterburner
         source: winget
@@ -436,7 +436,7 @@ properties:
       id: PotPlayer
       directives:
         description: Install PotPlayer
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: Daum.PotPlayer
         source: winget
@@ -445,7 +445,7 @@ properties:
       id: Popcorn Time
       directives:
         description: Install Popcorn Time
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: PopcornTime.Popcorn-Time
         source: winget
@@ -454,7 +454,7 @@ properties:
       id: Raspberry Pi Imager
       directives:
         description: Install Raspberry Pi Imager
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: RaspberryPiFoundation.RaspberryPiImager
         source: winget
@@ -463,7 +463,7 @@ properties:
       id: VMware Workstation Pro
       directives:
         description: Install VMware Workstation Pro
-        allowPrerelease: false
+        allowPrerelease: true
       settings:
         id: VMware.WorkstationPro
         source: winget
